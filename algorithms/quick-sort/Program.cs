@@ -14,8 +14,8 @@ namespace quick_sort
                 list.Add( rand.Next( 0, 1000 ) );
             }
 
-            list = QuickSort.Execute( list );
-            list.ForEach( item => Console.WriteLine( item ) );
+            List<int> sortedList = QuickSort.Execute( list );
+            sortedList.ForEach( item => Console.WriteLine( item ) );
         }
     }
 }

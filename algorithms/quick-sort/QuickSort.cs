@@ -11,14 +11,13 @@ namespace quick_sort
             {
                 return list;
             }
-            else
-            {
-                int pivot = list.First();
-                List<int> less = list.Skip( 1 ).Where( item => item <= pivot ).ToList();
-                List<int> greater = list.Skip( 1 ).Where( item => item > pivot ).ToList();
 
-                return Execute( less ).Concat( new[] { pivot } ).Concat( Execute( greater ) ).ToList();
-            }
+            int pivot = list.First();
+            List<int> listWithoutFirst = list.Skip( 1 ).ToList();
+            List<int> less = listWithoutFirst.Where( item => item <= pivot ).ToList();
+            List<int> greater = listWithoutFirst.Where( item => item > pivot ).ToList();
+
+            return Execute( less ).Concat( new[] { pivot } ).Concat( Execute( greater ) ).ToList();
         }
     }
 }
